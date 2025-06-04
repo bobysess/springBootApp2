@@ -28,10 +28,6 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<!-- sonarqube-->
-		<sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.projectKey>SpringbootApp2</sonar.projectKey>
-    	<sonar.login>sqp_5add5284919cbc8f3ce1f8d3c90bc96a8397a667</sonar.login>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -67,12 +63,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>5.1.0.4751</version>
-				<!--<version>yourPluginVersion</version>-->
-      		</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>

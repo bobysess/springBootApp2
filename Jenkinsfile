@@ -5,7 +5,6 @@ pipeline {
     //     // Specify Maven and JDK tools configured in Jenkins
     //     //maven 'mvn399'
     //     //jdk 'jdk24'
-    //     sonarQubeScanner   'sonarqube-scanner'         
     // }
     stages {
         stage('java(/mvn)') {
@@ -22,14 +21,8 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('Sonarqube-server') {
-                    sh './mvnw clean verify sonar:sonar'
-                }
-            }
-        }
         
+    
         stage('Build') {
             steps {
                 // Run Maven build
