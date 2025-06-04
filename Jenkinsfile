@@ -4,7 +4,7 @@ pipeline {
     tools {
         // Specify Maven and JDK tools configured in Jenkins
         maven 'mvn399'
-        jdk 'jdk24'
+        //jdk 'jdk24'
     }
     stages {
         stage('java(/mvn)') {
