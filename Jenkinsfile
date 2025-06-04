@@ -8,8 +8,10 @@ pipeline {
     }
     stages {
         stage('java(/mvn)') {
-           sh 'java --version'
-           sh 'mvn --version'     
+           steps {
+                sh 'java --version'
+                sh 'mvn --version'     
+           } 
         }
 
         stage('Checkout') {
