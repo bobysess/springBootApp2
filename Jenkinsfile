@@ -1,11 +1,12 @@
 pipeline {
     agent any
     
-    // tools {
-    //     // Specify Maven and JDK tools configured in Jenkins
-    //     //maven 'mvn399'
-    //     //jdk 'jdk24'
-    // }
+    tools {
+        // Specify Maven and JDK tools configured in Jenkins
+        //maven 'mvn399'
+        //jdk 'jdk24'
+        sonarQubeScanner   'sonarqube-scanner'         
+    }
     stages {
         stage('java(/mvn)') {
            steps {
@@ -18,6 +19,14 @@ pipeline {
             steps {
                 // Get code from repository
                 checkout scm
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh './mvnw clean verify sonar:sonar'
+                }
             }
         }
         
