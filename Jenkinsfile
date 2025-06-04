@@ -2,11 +2,16 @@ pipeline {
     agent any
     
     tools {
-        // Specify Maven tool configured in Jenkins
+        // Specify Maven and JDK tools configured in Jenkins
+        maven 'mvn399'
         jdk 'jdk24'
     }
-    
     stages {
+        stage('java(/mvn)') {
+           sh 'java --version'
+           sh 'mvn --version'     
+        }
+
         stage('Checkout') {
             steps {
                 // Get code from repository
@@ -17,14 +22,14 @@ pipeline {
         stage('Build') {
             steps {
                 // Run Maven build
-                sh './mvnw clean compile'
+                sh 'mvn clean compile'
             }
         }
         
         stage('Test') {
             steps {
                 // Run tests
-                sh './mvnw test'
+                sh 'mvn test'
             }
             post {
                 always {
@@ -37,7 +42,7 @@ pipeline {
         stage('Package') {
             steps {
                 // Package the application
-                sh './mvnw package -DskipTests'
+                sh 'mvn package -DskipTests'
                 
                 // Archive the artifacts
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
