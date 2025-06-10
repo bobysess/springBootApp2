@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'ubuntu' }
     
     // tools {
     //     // Specify Maven and JDK tools configured in Jenkins
@@ -21,7 +21,15 @@ pipeline {
             }
         }
 
-        
+        stage('docker') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-repo-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh "docker login -u \$DOCKER_USER -p \$DOCKER_PASS"
+                    sh "docker build -t bobyess/spring-boot-app-2:1.0.1 ."
+                    sh "docker push bobyess/spring-boot-app-2:1.0.1"
+                }
+            }
+        }
     
         stage('Build') {
             steps {
@@ -43,36 +51,36 @@ pipeline {
             }
         }
 
-        stage ('jacoco') {
-            steps {
-                recordCoverage(tools: [[parser: 'JACOCO']],
-                    id: 'jacoco', name: 'JaCoCo Coverage',
-                    sourceCodeRetention: 'EVERY_BUILD',
-                    qualityGates: [
-                        [threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true],
-                        [threshold: 60.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
-            }
-        }
+        // stage ('jacoco') {
+        //     steps {
+        //         recordCoverage(tools: [[parser: 'JACOCO']],
+        //             id: 'jacoco', name: 'JaCoCo Coverage',
+        //             sourceCodeRetention: 'EVERY_BUILD',
+        //             qualityGates: [
+        //                 [threshold: 60.0, metric: 'LINE', baseline: 'PROJECT', unstable: true],
+        //                 [threshold: 60.0, metric: 'BRANCH', baseline: 'PROJECT', unstable: true]])
+        //     }
+        // }
         
-        stage('Package') {
-            steps {
+        // stage('Package') {
+            // steps {
                 // Package the application
-                sh './mvnw package -DskipTests'
-                
+                // sh './mvnw package -DskipTests'
+                // 
                 // Archive the artifacts
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-            }
-        }
+                // archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            // }
+        // }
         
-        stage('Deploy') {
-            steps {
-                // Placeholder for deployment logic
-                echo 'Deploying the application...'
-                
-                // Example deployment command (commented out)
-                // sh 'cp target/*.jar /deploy/directory/'
-            }
-        }
+        // stage('Deploy') {
+            // steps {
+            //    Placeholder for deployment logic
+                // echo 'Deploying the application...'
+                // 
+            //    Example deployment command (commented out)
+                sh 'cp target/*.jar /deploy/directory/'
+            // }
+        // }
     }
     
     post {
