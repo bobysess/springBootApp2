@@ -20,16 +20,17 @@ pipeline {
                 checkout scm
             }
         }
-
-        stage('docker') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-repo-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh "docker login -u \$DOCKER_USER -p \$DOCKER_PASS"
-                    sh "docker build -t bobyess/spring-boot-app-2:1.0.1 ."
-                    sh "docker push bobyess/spring-boot-app-2:1.0.1"
-                }
-            }
-        }
+        
+        
+        // stage('docker') {
+        //     steps {
+        //         withCredentials([usernamePassword(credentialsId: 'docker-repo-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+        //             sh "docker login -u \$DOCKER_USER -p \$DOCKER_PASS"
+        //             sh "docker build -t bobyess/spring-boot-app-2:1.0.1 ."
+        //             sh "docker push bobyess/spring-boot-app-2:1.0.1"
+        //         }
+        //     }
+        // }
     
         stage('Build') {
             steps {
@@ -86,9 +87,11 @@ pipeline {
     post {
         success {
             echo 'Pipeline completed successfully!'
+            slackSend color: "good", message: 'Pipeline completed successfully!'
         }
         failure {
             echo 'Pipeline failed!'
+            slackSend color: "bad", message: 'Pipeline failed!'
         }
         always {
             // Clean workspace
