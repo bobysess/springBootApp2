@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ubuntu' }
+    agent any 
     
     // tools {
     //     // Specify Maven and JDK tools configured in Jenkins
@@ -78,7 +78,7 @@ pipeline {
                 // echo 'Deploying the application...'
                 // 
             //    Example deployment command (commented out)
-                sh 'cp target/*.jar /deploy/directory/'
+            //    sh 'cp target/*.jar /deploy/directory/'
             // }
         // }
     }
