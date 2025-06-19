@@ -1,0 +1,49 @@
+2025-06-14 00:49:32.208 INFO  c.b.s.SpringBootApp2Application - Starting SpringBootApp2Application using Java 24.0.1 with PID 1786640 (/home/afeutse/Documents/training/backend/springBootApp2/target/classes started by afeutse in /home/afeutse/Documents/training/backend/springBootApp2)
+2025-06-14 00:49:32.211 INFO  c.b.s.SpringBootApp2Application - The following 1 profile is active: "logFile"
+2025-06-14 00:49:32.258 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-14 00:49:32.258 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-14 00:49:32.833 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-14 00:49:32.850 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2025-06-14 00:49:33.195 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-14 00:49:33.209 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-14 00:49:33.210 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-14 00:49:33.242 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-14 00:49:33.243 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 984 ms
+2025-06-14 00:49:33.631 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-14 00:49:33.823 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a69cabe5-8716-44e2-bae0-389ae17c295c user=SA
+2025-06-14 00:49:33.824 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-14 00:49:33.921 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:a69cabe5-8716-44e2-bae0-389ae17c295c'
+2025-06-14 00:49:33.962 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-14 00:49:33.985 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-14 00:49:33.996 INFO  c.b.s.SpringBootApp2Application - Started SpringBootApp2Application in 2.273 seconds (process running for 2.652)
+2025-06-14 00:49:44.946 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-14 00:49:44.953 INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-06-14 00:49:44.965 WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-06-14 00:49:44.966 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-14 00:49:44.969 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-14 22:16:46.139 INFO  c.b.s.SpringBootApp2Application - Starting SpringBootApp2Application using Java 24.0.1 with PID 2474376 (/home/afeutse/Documents/training/backend/springBootApp2/target/classes started by afeutse in /home/afeutse/Documents/training/backend/springBootApp2)
+2025-06-14 22:16:46.150 INFO  c.b.s.SpringBootApp2Application - The following 1 profile is active: "logFile"
+2025-06-14 22:16:46.417 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-14 22:16:46.419 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-14 22:16:50.849 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-06-14 22:16:50.954 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 0 JDBC repository interfaces.
+2025-06-14 22:16:54.998 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-06-14 22:16:55.065 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-14 22:16:55.067 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-14 22:16:55.199 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-14 22:16:55.202 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8780 ms
+2025-06-14 22:17:02.669 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-14 22:17:03.646 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:3ada7ff9-860e-435c-88bb-4999341a401d user=SA
+2025-06-14 22:17:03.654 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-14 22:17:04.404 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:3ada7ff9-860e-435c-88bb-4999341a401d'
+2025-06-14 22:17:04.606 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-14 22:17:04.752 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2025-06-14 22:17:05.351 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-06-14 22:17:05.416 INFO  c.b.s.SpringBootApp2Application - Started SpringBootApp2Application in 22.57 seconds (process running for 24.644)
+2025-06-14 22:17:05.790 INFO  c.b.s.SpringBootApp2Application - Starting Api Call
+2025-06-14 22:17:05.805 INFO  c.b.s.SpringBootApp2Application - End Api Call
+2025-06-14 22:17:06.559 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-14 22:17:06.562 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-14 22:17:06.570 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-06-14 22:17:10.395 INFO  c.b.s.SpringBootApp2Application - Inside observation
+2025-06-14 22:17:13.040 INFO  c.b.s.SpringBootApp2Application - Inside observation
