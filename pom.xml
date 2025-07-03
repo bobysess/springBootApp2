@@ -38,6 +38,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+			<!-- <version>3.5.3</version> -->
+		</dependency>
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,6 +69,10 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.38</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.ws</groupId>
+			<artifactId>jakarta.xml.ws-api</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -90,6 +103,82 @@
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceType>wsdl</sourceType>
+					<sources>
+						<source>src/main/resources/temperature.xsd</source>
+					</sources>
+					
+				</configuration>
+        	</plugin> 
+			<!-- <plugin>
+				<groupId>com.sun.xml.ws</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>4.0.3</version>
+				<executions>
+					<execution>
+						<id>generate-ws-client</id>
+						<goals><goal>wsimport</goal></goals>
+						<configuration>
+							<wsdlFiles>
+								<wsdlFile>temperature.wsdl</wsdlFile>
+							</wsdlFiles>
+							<wsdlDirectory>${project.basedir}/src/main/resources</wsdlDirectory>
+							<packageName>com.bobysess.generated</packageName>
+							<sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-wsdl</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>wsgen</goal>
+						</goals>
+						<configuration>
+							<sei>com.bobysess.springBootApp2.service.jaxws.BankAccountService</sei>
+							<genWsdl>true</genWsdl>
+							<keep>true</keep>
+							<sourceDestDir>${project.build.directory}/generated-sources/wsgen</sourceDestDir>
+							<resourceDestDir>${project.build.directory}/generated-wsdl</resourceDestDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+			<!-- <plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>4.1.2</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/temperature.wsdl</wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+
 		</plugins>
 	</build>
 

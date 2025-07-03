@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://bobysess.com/temperature"
+           xmlns:tns="http://bobysess.com/temperature"
+           elementFormDefault="qualified">
+
+    <xs:element name="convertTemperatureRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value" type="xs:double"/>
+                <xs:element name="fromUnit" type="tns:temperatureUnit"/>
+                <xs:element name="toUnit" type="tns:temperatureUnit"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="convertTemperatureResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="convertedValue" type="xs:double"/>
+                <xs:element name="originalValue" type="xs:double"/>
+                <xs:element name="fromUnit" type="tns:temperatureUnit"/>
+                <xs:element name="toUnit" type="tns:temperatureUnit"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="temperatureUnit">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CELSIUS"/>
+            <xs:enumeration value="FAHRENHEIT"/>
+            <xs:enumeration value="KELVIN"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

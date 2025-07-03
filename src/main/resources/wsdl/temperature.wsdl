@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://bobysess.com/temperature"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://bobysess.com/temperature">
+
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://bobysess.com/temperature" 
+                       schemaLocation="temperature.xsd"/>
+        </xsd:schema>
+    </types>
+
+    <message name="convertTemperatureRequest">
+        <part name="parameters" element="tns:convertTemperatureRequest"/>
+    </message>
+
+    <message name="convertTemperatureResponse">
+        <part name="parameters" element="tns:convertTemperatureResponse"/>
+    </message>
+
+    <portType name="TemperatureServicePortType">
+        <operation name="convertTemperature">
+            <input message="tns:convertTemperatureRequest"/>
+            <output message="tns:convertTemperatureResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="TemperatureServiceBinding" type="tns:TemperatureServicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="convertTemperature">
+            <soap:operation soapAction="convertTemperature"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="TemperatureService">
+        <port name="TemperatureServicePort" binding="tns:TemperatureServiceBinding">
+            <soap:address location="http://localhost:8080/ws/temperature"/>
+        </port>
+    </service>
+
+</definitions>
