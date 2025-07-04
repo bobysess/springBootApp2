@@ -1,0 +1,6 @@
+# docker-compose.yml
+services:
+  redis:
+    image: redis:8.0.2-alpine
+    ports:
+      - "6379:6379"
