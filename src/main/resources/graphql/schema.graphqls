@@ -1,0 +1,39 @@
+type Query {
+    book(id: ID!): Book
+    book2(id: ID!): Book
+    hello(name: String): String
+    books: [Book]
+    author(id: ID!): Author
+    authors: [Author]
+}
+
+type Mutation {
+    addBook(book: BookReq): Book
+    deleteBook(id: ID!): Boolean
+}
+
+
+input BookReq {
+    id: ID!
+    title: String 
+    summary: String
+    authorId: ID
+}
+
+
+type Book {
+    id: ID!
+    title: String 
+    summary: String
+    author: Author
+}
+
+type Author {
+    id: ID! 
+    name: String 
+    books: [Book]
+}
+
+type Subscription {
+    stockprice: Int
+}
