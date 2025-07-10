@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .header { background-color: #f4f4f4; padding: 20px; border-radius: 5px; }
+        .content { margin-top: 20px; }
+        .logout-btn { background-color: #dc3545; color: white; padding: 10px 15px; text-decoration: none; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the Dashboard!</h1>
+        <p th:if="${username}">Hello, <strong th:text="${username}">User</strong>!</p>
+        <p th:if="${authorities}">Your roles: <span th:text="${authorities}">ROLE_USER</span></p>
+    </div>
+    
+    <div class="content">
+        <h2>LDAP Authentication Successful</h2>
+        <p>You have successfully logged in using LDAP credentials.</p>
+        
+        <form action="/logout" method="post" style="margin-top: 20px;">
+            <input type="submit" value="Logout" class="logout-btn">
+        </form>
+    </div>
+</body>
+</html>
