@@ -13,7 +13,7 @@ This application has been configured with several performance optimizations:
   - Connection timeout: 20 seconds
   - Idle timeout: 5 minutes
   - Max lifetime: 20 minutes
-  - Leak detection threshold: 60 seconds
+  - Leak detection threshold: 2 minutes
 
 ### JPA/Hibernate Configuration
 - **SQL Logging Disabled**: `spring.jpa.show-sql=false` eliminates the performance overhead of logging every SQL query
@@ -25,7 +25,7 @@ This application has been configured with several performance optimizations:
 - **Auto DDL**: Schema updates are managed with `spring.jpa.hibernate.ddl-auto=update`
 
 ### Server Optimizations
-- **HTTP Compression**: Response compression enabled for text and JSON content (minimum 1KB)
+- **HTTP Compression**: Response compression enabled for text, JSON, and XML content (minimum 1KB)
 - **Optimized Logging**: Configured at INFO level to reduce overhead
 
 ### Security & Resource Management
